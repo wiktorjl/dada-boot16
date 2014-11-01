@@ -19,4 +19,5 @@ stage1:
 clean:
 	@echo Cleaning stage0
 	rm -rfv data/stage0.bin
+	rm -rfv data/floppy.img
 
