@@ -63,26 +63,26 @@ start:	jmp loader
 bsOEM			DB " WOS1    "
 
 ; BIOS parameter block
-bpbBytesPerSector: 	    DW 512
+bpbBytesPerSector:      DW 512
 bpbSectorsPerCluster: 	DB 1
 bpbReservedSectors: 	DW 1
-bpbNumberOfFATs: 	    DB 2
-bpbRootEntries: 	    DW 224
-bpbTotalSectors: 	    DW 2880
-bpbMedia: 	            DB 0xf8
-bpbSectorsPerFAT: 	    DW 9
+bpbNumberOfFATs:        DB 2
+bpbRootEntries:         DW 224
+bpbTotalSectors:        DW 2880
+bpbMedia:               DB 0xf8
+bpbSectorsPerFAT:       DW 9
 bpbSectorsPerTrack: 	DW 18
 bpbHeadsPerCylinder: 	DW 2
-bpbHiddenSectors: 	    DD 0
+bpbHiddenSectors:       DD 0
 bpbTotalSectorsBig:     DD 0
 bsDriveNumber: 	        DB 0
-bsUnused: 	            DB 0
+bsUnused:               DB 0
 bsExtBootSignature: 	DB 0x29
 bsSerialNumber:         DD 0x10203040
 bsVolumeLabel: 	        DB "VOSBOOTDISK"
 bsFileSystem: 	        DB "FAT12   "
-fileName		        DB "...........", 0
-stage1Name              DB "STAGE1  BIN", 0
+fileName:               DB "...........", 0
+stage1Name:             DB "STAGE1  BIN", 0
 section .text
 
 ;===============================================================================
@@ -97,9 +97,9 @@ loader:
     mov	sp, ax
     mov	bp, sp ; not sure we need to set-up bp, but do it anyway
 
-    ;xor	ax, ax ; zero out data and extra segments
-    ;mov	ds, ax
-    ;mov	es, ax
+    ;xor ax, ax ; zero out data and extra segments
+    ;mov ds, ax
+    ;mov es, ax
     ;mov fs, ax
     ;mov gs, ax
 
