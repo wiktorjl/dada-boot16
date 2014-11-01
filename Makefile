@@ -1,7 +1,7 @@
 NASM_CMD = nasm
 NASM_FLAGS = -g -f bin
 
-.PHONY: all  stage0
+.PHONY: all stage0 stage1
 
 all: clean 
 
@@ -14,10 +14,13 @@ stage0:
 	@echo Floppy ready.
 
 stage1:
-	@echo Building stage0...
+	@echo Building stage1...
+	$(NASM_CMD) $(NASM_FLAGS) stage1/stage1.s -o data/stage1.bin
+	sh ./scripts/build-stage1.sh
 
 clean:
 	@echo Cleaning stage0
 	rm -rfv data/stage0.bin
+	rm -rfv data/stage1.bin
 	rm -rfv data/floppy.img
 
